@@ -1,0 +1,99 @@
+fileFormatVersion: 2
+guid: 5b23eccceceba0246a269da8bcc4495c
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Plane
+    100004: Point
+    100006: Steve
+    100008: SteveArmature
+    100010: SteveArmature|Head
+    100012: SteveArmature|LLowerArm
+    100014: SteveArmature|LLowerLeg
+    100016: SteveArmature|LowerBody
+    100018: SteveArmature|LUpperArm
+    100020: SteveArmature|LUpperLeg
+    100022: SteveArmature|RLowerArm
+    100024: SteveArmature|RLowerLeg
+    100026: SteveArmature|RUpperArm
+    100028: SteveArmature|RUpperLeg
+    100030: SteveArmature|UpperBody
+    100032: //RootNode
+    400000: Camera
+    400002: Plane
+    400004: Point
+    400006: Steve
+    400008: SteveArmature
+    400010: SteveArmature|Head
+    400012: SteveArmature|LLowerArm
+    400014: SteveArmature|LLowerLeg
+    400016: SteveArmature|LowerBody
+    400018: SteveArmature|LUpperArm
+    400020: SteveArmature|LUpperLeg
+    400022: SteveArmature|RLowerArm
+    400024: SteveArmature|RLowerLeg
+    400026: SteveArmature|RUpperArm
+    400028: SteveArmature|RUpperLeg
+    400030: SteveArmature|UpperBody
+    400032: //RootNode
+    2300000: Plane
+    3300000: Plane
+    4300000: Plane
+    4300002: Steve
+    9500000: //RootNode
+    13700000: Steve
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

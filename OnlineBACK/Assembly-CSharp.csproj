@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AnimatorMultiplayer.cs" />
      <Compile Include="Assets\Scripts\AnimatorScript.cs" />
      <Compile Include="Assets\Scripts\CharacterControllerMultiplayer.cs" />
      <Compile Include="Assets\Scripts\DatabaseCharacter.cs" />

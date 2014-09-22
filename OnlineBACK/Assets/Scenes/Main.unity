@@ -175,6 +175,14 @@ Prefab:
       propertyPath: cameras.Array.data[0]
       value: 
       objectReference: {fileID: 400000, guid: e4c118fc14f5ad14db716d26ff9eecd8, type: 2}
+    - target: {fileID: 11400002, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
+      propertyPath: sensitivityY
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
+      propertyPath: sensitivityX
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
   m_RootGameObject: {fileID: 175999414}
@@ -380,8 +388,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rotationSpeed: 360
-  lookUpAndDownLimit: 60
+  axes: 0
+  sensitivityX: 5
+  sensitivityY: 4
+  minimumX: -360
+  maximumX: 360
+  minimumY: -60
+  maximumY: 60
 --- !u!1 &2035644615
 GameObject:
   m_ObjectHideFlags: 0

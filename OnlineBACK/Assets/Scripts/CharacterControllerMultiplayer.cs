@@ -9,18 +9,18 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 	public RotationAxes axes = RotationAxes.MouseXAndY;
 	public float sensitivityX;
 	public float sensitivityY;
-	public float minimumX = -360F;
 	public float maximumX = 360F;
-	public float minimumY = -60F;
 	public float maximumY = 60F;
+	public float runMultiplier;
 	float rotationY = 0F;
 	void Start () {
 
 	}
 
-	void Update ()
+	void FixedUpdate ()
 	{
 		if (character != null) {
+						// Movimentaçao da camera
 						DatabaseCharacter DBchar = (DatabaseCharacter)character.GetComponent (typeof(DatabaseCharacter));
 						mainCamera.parent = DBchar.head.transform;
 						mainCamera.position = new Vector3 (DBchar.head.position.x, DBchar.head.position.y + 0.3f, DBchar.head.position.z);
@@ -29,7 +29,7 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 								float rotationX = DBchar.transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;
 			
 								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+								rotationY = Mathf.Clamp (rotationY, -maximumY, maximumY);
 			
 								DBchar.head.transform.localEulerAngles = new Vector3 (rotationY, 0, 0);
 								DBchar.transform.localEulerAngles = new Vector3 (0, rotationX, 0);
@@ -37,11 +37,14 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 								DBchar.transform.Rotate (0, Input.GetAxis ("Mouse X") * sensitivityX, 0);
 						} else {
 								rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-								rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+								rotationY = Mathf.Clamp (rotationY, -maximumY, maximumY);
 			
 								DBchar.head.transform.localEulerAngles = new Vector3 (rotationY, DBchar.head.transform.localEulerAngles.y, 0);
 						}
-			DBchar.transform.Translate (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * speed * Time.deltaTime);
+			// Movimentaçao do personagem
+			if (Input.GetKey (KeyCode.LeftShift))
+				DBchar.transform.Translate (Input.GetAxis ("Horizontal") * 1000000 * Time.deltaTime, 0, Input.GetAxis ("Vertical") * speed * Time.deltaTime);
+			else DBchar.transform.Translate (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * speed * Time.deltaTime);
 				}
 	}
 

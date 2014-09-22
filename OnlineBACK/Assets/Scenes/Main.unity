@@ -183,6 +183,14 @@ Prefab:
       propertyPath: sensitivityX
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
+      propertyPath: runMultiplier
+      value: 1e+10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
   m_RootGameObject: {fileID: 175999414}
@@ -391,10 +399,9 @@ MonoBehaviour:
   axes: 0
   sensitivityX: 5
   sensitivityY: 4
-  minimumX: -360
   maximumX: 360
-  minimumY: -60
   maximumY: 60
+  runMultiplier: 1e+10
 --- !u!1 &2035644615
 GameObject:
   m_ObjectHideFlags: 0

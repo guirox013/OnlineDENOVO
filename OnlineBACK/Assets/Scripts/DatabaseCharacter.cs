@@ -3,10 +3,11 @@ using System.Collections;
 
 public class DatabaseCharacter : MonoBehaviour {
 	public Transform head; 
-	public Transform playerCamera;
+	public Animator myAnimator;
+
 	// Use this for initialization
 	void Start () {
-	
+		myAnimator = GetComponent <Animator> ();
 	}
 	
 	// Update is called once per frame

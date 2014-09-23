@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimatorControllerMultiplayer : MonoBehaviour {
+public class TestCollider : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,4 +12,8 @@ public class AnimatorControllerMultiplayer : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnCollisionEnter (Collision hit){
+				Debug.Log ("Enter called.");
+		}
 }

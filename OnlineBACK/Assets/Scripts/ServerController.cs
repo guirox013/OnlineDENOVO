@@ -9,11 +9,13 @@ public class ServerController : MonoBehaviour {
 	public GameObject[] respawns;
 	public GameObject[] players;
 	public Transform[] cameras;
+	public int limite;
 
 	// Use this for initialization
 	void Start () {
 		ip = Network.player.ipAddress;
 		port = 8080;
+		limite = 0;
 	}
 	
 	// Update is called once per frame
@@ -43,17 +45,22 @@ public class ServerController : MonoBehaviour {
 		if (Network.peerType == NetworkPeerType.Client || Network.peerType == NetworkPeerType.Server){
 			GUI.Label(new Rect(10, 10, Screen.width, 20), Network.player.ipAddress + " is connected in " + ip);
 			if (CharacterControllerMultiplayer.character == null)
-			if (GUI.Button(new Rect(10,40,100,30), "Respawn")) respawnCharacter(players[0], cameras[0]);
+			if (GUI.Button(new Rect(10,40,100,30), "Respawn")) respawnCharacter(players[limite], cameras[limite]);
 		}
 		if (GUI.Button(new Rect( 450,10,100,30),"Disconnect")){
 			Network.Disconnect ();
 			destroyCharacter(CharacterControllerMultiplayer.character);
+			Application.LoadLevel("Menu");
+			Debug.Log ("Loading Complete");
 		}
 	}
 
 	void respawnCharacter (GameObject personagem, Transform camera){
-		CharacterControllerMultiplayer.character = (GameObject)Network.Instantiate (personagem, respawns [0].transform.position, personagem.transform.rotation, 0);
-		CharacterControllerMultiplayer.mainCamera = (Transform)Network.Instantiate (camera, respawns [0].transform.position, personagem.transform.rotation, 0);
+		if (CharacterControllerMultiplayer.character == null) {
+			CharacterControllerMultiplayer.character = (GameObject)Network.Instantiate (personagem, respawns [limite].transform.position, personagem.transform.rotation, 0);
+			//CharacterControllerMultiplayer.mainCamera = (Transform)Network.Instantiate (camera, respawns [limite].transform.position, personagem.transform.rotation, 0);
+			limite++;
+		}
 	}
 
 	void destroyCharacter (GameObject personagem) {

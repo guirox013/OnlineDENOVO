@@ -50,7 +50,7 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			// Movimentaçao de Y
 			} else {
 				rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-				rotationY = Mathf.Clamp (rotationY, -maximumY, maximumY);
+				rotationY = Mathf.Clamp (rotationY, -maximumY, maximumY-50f);
 				DBchar.head.transform.localEulerAngles = new Vector3 (rotationY, DBchar.head.transform.localEulerAngles.y, 0);
 			}
 
@@ -59,22 +59,16 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 				DBchar.transform.Translate (Input.GetAxis ("Horizontal") * (speed + runMultiplier) * Time.deltaTime, 0, Input.GetAxis ("Vertical") * (speed + runMultiplier) * Time.deltaTime);
 			else DBchar.transform.Translate (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * speed * Time.deltaTime);
 
-			// Animaçao do personagem
-
-			// Animaçao de andar
-			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))
-				DBchar.myAnimator.SetBool("isWalking", true);
-			else DBchar.myAnimator.SetBool ("isWalking",false);
-
-			//Animaçao de corrida
-			if ((Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S)) && Input.GetKey (KeyCode.LeftShift))
-				DBchar.myAnimator.SetBool ("isRunning", true);
-			else DBchar.myAnimator.SetBool ("isRunning", false);
-
 			// Pulo do Personagem
 			if (Input.GetKey (KeyCode.Space) && !jumpCheck){
 				DBchar.rigidbody.AddForce (0,jumpForce,0);
 				jumpCheck = true;
+			}
+
+			// Teste movimento pelo servidor
+			if (Vector3.Distance (DBchar.transform.position, DBchar.lastPosition) >= 0.05){
+				DBchar.lastPosition = DBchar.transform.position;
+				networkView.RPC("atualizaPosition", RPCMode.Others, DBchar.transform.position);
 			}
 		}
 	}
@@ -82,4 +76,13 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 	void OnCollisionEnter (Collision hit){
 		Debug.Log ("Enter called.");
 	}
+
+	[RPC]
+	void atualizaCubo (Vector3 newPos){
+
+		transform.position=newPos;
+	}
+
+
+
 }

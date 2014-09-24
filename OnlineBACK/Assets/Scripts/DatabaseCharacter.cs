@@ -3,11 +3,10 @@ using System.Collections;
 
 public class DatabaseCharacter : MonoBehaviour {
 	public Transform head; 
-	public Animator myAnimator;
-
+	public Vector3 lastPosition;
 	// Use this for initialization
 	void Start () {
-		myAnimator = GetComponent <Animator> ();
+		lastPosition = transform.position;
 	}
 	
 	// Update is called once per frame

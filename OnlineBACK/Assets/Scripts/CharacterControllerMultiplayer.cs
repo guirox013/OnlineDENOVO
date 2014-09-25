@@ -15,11 +15,8 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 	public float runMultiplier;
 	public float jumpForce;
 	float rotationY = 0F;
-	bool jumpCheck = false;
-
 	// Start que nao serve pra porra nenhuma por enquanto
 	void Start () {
-
 	}
 
 	void FixedUpdate ()
@@ -60,28 +57,22 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			else DBchar.transform.Translate (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * speed * Time.deltaTime);
 
 			// Pulo do Personagem
-			if (Input.GetKey (KeyCode.Space) && !jumpCheck){
+			if (Input.GetKey (KeyCode.Space) && Animatorcontroller.isGrounded){
 				DBchar.rigidbody.AddForce (0,jumpForce,0);
-				jumpCheck = true;
 			}
 
 			// Teste movimento pelo servidor
-			if (Vector3.Distance (DBchar.transform.position, DBchar.lastPosition) >= 0.05){
-				DBchar.lastPosition = DBchar.transform.position;
-				networkView.RPC("atualizaPosition", RPCMode.Others, DBchar.transform.position);
-			}
+			//if (Vector3.Distance (DBchar.transform.position, DBchar.lastPosition) >= 0.05){
+			//	DBchar.lastPosition = DBchar.transform.position;
+			//	networkView.RPC("atualizaPosition", RPCMode.Others, DBchar.transform.position);
+			//}
 		}
 	}
 		// Teste de colisao
 	void OnCollisionEnter (Collision hit){
 		Debug.Log ("Enter called.");
 	}
-
-	[RPC]
-	void atualizaCubo (Vector3 newPos){
-
-		transform.position=newPos;
-	}
+		
 
 
 

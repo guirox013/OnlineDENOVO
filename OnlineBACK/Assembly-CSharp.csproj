@@ -52,14 +52,21 @@
      <Compile Include="Assets\Scripts\CharacterControllerMultiplayer.cs" />
      <Compile Include="Assets\Scripts\DatabaseCharacter.cs" />
      <Compile Include="Assets\Scripts\ServerController.cs" />
+     <Compile Include="Assets\Sync.cs" />
+     <Compile Include="Assets\Syncronizator.cs" />
      <Compile Include="Assets\TestCollider.cs" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Plugins\Photon3Unity3D.xml" />
+ <Reference Include="Photon3Unity3D">
+ <HintPath>C:/Users/USER/Documents/Online/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

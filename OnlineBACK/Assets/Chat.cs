@@ -2,9 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-/// <summary>
-/// This simple chat example showcases the use of RPC targets and targetting certain players via RPCs.
-/// </summary>
+
 public class Chat : Photon.MonoBehaviour
 {
 	

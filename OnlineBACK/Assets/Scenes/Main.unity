@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subId: 0
+  subId: 1
   ownerId: 0
   group: 0
   prefixBackup: -1
@@ -304,6 +304,10 @@ Prefab:
     - target: {fileID: 11400008, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
       propertyPath: limite
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}
+      propertyPath: subId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fad0983ede182114dbcfc5d179d1a42c, type: 2}

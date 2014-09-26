@@ -207,7 +207,6 @@ GameObject:
   - 95: {fileID: 9500000}
   - 136: {fileID: 13600000}
   - 54: {fileID: 5400000}
-  - 148: {fileID: 14800000}
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: SteveLite
@@ -426,7 +425,6 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,7 +437,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 400022}
-  lastPosition: {x: 0, y: 0, z: 0}
+  isMine: 0
+  myAnimator: {fileID: 0}
+  characterState: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -500,18 +500,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 9.83476639e-07, y: .395001531, z: .00493806601}
     m_Extent: {x: .810001254, y: 1.60500228, z: .400001585}
   m_DirtyAABB: 0
---- !u!148 &14800000
-NetworkView:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100026}
-  m_Enabled: 0
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 400026}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

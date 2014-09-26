@@ -66,7 +66,6 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			}
 
 			if (Input.GetKey (KeyCode.Mouse0) && DBchar.isMine){
-				Debug.Log ("ESTOU DENTRO");
 				DBchar.characterState = 1;
 				DBchar.myAnimator.SetInteger ("animationState", DBchar.characterState);
 			}

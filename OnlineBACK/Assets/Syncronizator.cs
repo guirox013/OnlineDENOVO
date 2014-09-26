@@ -30,6 +30,7 @@ public class Syncronizator : Photon.MonoBehaviour {
 				this.trueRot = (Quaternion)stream.ReceiveNext();
 				DatabaseCharacter myChar = GetComponent<DatabaseCharacter>();
 				myChar.characterState = (int)stream.ReceiveNext();
+				myChar.myAnimator.SetInteger ("animationState", myChar.characterState);
 			}
 		}
 		//we need to send our data
@@ -40,7 +41,8 @@ public class Syncronizator : Photon.MonoBehaviour {
 				stream.SendNext (transform.position);
 				stream.SendNext (transform.rotation);
 				DatabaseCharacter myChar = GetComponent<DatabaseCharacter>();
-				stream.SendNext ((int)myChar.characterState);
+				stream.SendNext (myChar.characterState);
+				print (myChar.characterState);
 			}
 		}
 	}

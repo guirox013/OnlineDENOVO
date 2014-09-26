@@ -13,13 +13,10 @@ public class DatabaseCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-	
 	}
 
 	public bool isGrounded (Vector3 position, Vector3 down, float distance){
 		return (Physics.Raycast(position, down, distance));
 	}
-
-	public void isPunching (){
-		}
+	
 }

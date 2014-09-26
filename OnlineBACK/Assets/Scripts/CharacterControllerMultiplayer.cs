@@ -12,23 +12,25 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 	public float sensitivityY;
 	public float maximumX = 360F;
 	public float maximumY = 60F;
+	public float minimumY;
 	public float runMultiplier;
 	public float jumpForce;
 	float rotationY = 0F;
+
+	Vector3 down;
+	bool isGrounded;
 	// Start que nao serve pra porra nenhuma por enquanto
 	void Start () {
 	}
 
 	void FixedUpdate ()
 	{
-		// Check temporario para testes do pulo
-		//print (jumpCheck);
-
 		//Checa se existe char
 		if (character != null) {
 
 			// Movimentaçao da camera
 			DatabaseCharacter DBchar = (DatabaseCharacter)character.GetComponent (typeof(DatabaseCharacter));
+			DBchar.isMine = true;
 			mainCamera.parent = DBchar.head.transform;
 			mainCamera.position = new Vector3 (DBchar.head.position.x, DBchar.head.position.y + 0.3f, DBchar.head.position.z);
 
@@ -36,7 +38,7 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			if (axes == RotationAxes.MouseXAndY) {
 				float rotationX = DBchar.transform.localEulerAngles.y + Input.GetAxis ("Mouse X") * sensitivityX;	
 				rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-				rotationY = Mathf.Clamp (rotationY, -maximumY, maximumY);
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 				DBchar.head.transform.localEulerAngles = new Vector3 (rotationY, 0, 0);
 				DBchar.transform.localEulerAngles = new Vector3 (0, rotationX, 0);
 
@@ -47,30 +49,33 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			// Movimentaçao de Y
 			} else {
 				rotationY += Input.GetAxis ("Mouse Y") * sensitivityY;
-				rotationY = Mathf.Clamp (rotationY, -maximumY, maximumY-50f);
+				rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
 				DBchar.head.transform.localEulerAngles = new Vector3 (rotationY, DBchar.head.transform.localEulerAngles.y, 0);
 			}
 
 			// Movimentaçao do personagem
 			if (Input.GetKey (KeyCode.LeftShift))
-				DBchar.transform.Translate (Input.GetAxis ("Horizontal") * (speed + runMultiplier) * Time.deltaTime, 0, Input.GetAxis ("Vertical") * (speed + runMultiplier) * Time.deltaTime);
+				DBchar.transform.Translate (Input.GetAxis ("Horizontal") * (speed * runMultiplier) * Time.deltaTime, 0, Input.GetAxis ("Vertical") * (speed * runMultiplier) * Time.deltaTime);
 			else DBchar.transform.Translate (Input.GetAxis ("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxis ("Vertical") * speed * Time.deltaTime);
 
 			// Pulo do Personagem
-			if (Input.GetKey (KeyCode.Space) && Animatorcontroller.isGrounded){
+			down = DBchar.transform.TransformDirection(Vector3.down);
+			isGrounded = DBchar.isGrounded(DBchar.transform.position, down, 2.4f);
+			if (Input.GetKey (KeyCode.Space) && isGrounded){
 				DBchar.rigidbody.AddForce (0,jumpForce,0);
 			}
 
-			// Teste movimento pelo servidor
-			//if (Vector3.Distance (DBchar.transform.position, DBchar.lastPosition) >= 0.05){
-			//	DBchar.lastPosition = DBchar.transform.position;
-			//	networkView.RPC("atualizaPosition", RPCMode.Others, DBchar.transform.position);
-			//}
+			if (Input.GetKey (KeyCode.Mouse0) && DBchar.isMine){
+				Debug.Log ("ESTOU DENTRO");
+				DBchar.characterState = 1;
+				DBchar.myAnimator.SetInteger ("animationState", DBchar.characterState);
+			}
+			else{ 
+				DBchar.characterState = 0;
+				DBchar.myAnimator.SetInteger ("animationState", DBchar.characterState);
+			}
+
 		}
-	}
-		// Teste de colisao
-	void OnCollisionEnter (Collision hit){
-		Debug.Log ("Enter called.");
 	}
 		
 

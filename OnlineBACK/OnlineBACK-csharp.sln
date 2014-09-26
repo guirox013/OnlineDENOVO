@@ -5,6 +5,8 @@ Project("{640480B0-670B-2DA3-D815-8F7347C9E4C3}") = "OnlineBACK", "Assembly-CSha
 EndProject
 Project("{640480B0-670B-2DA3-D815-8F7347C9E4C3}") = "OnlineBACK", "Assembly-CSharp-vs.csproj", "{C09B8FA8-B6AA-4744-9246-4DD8C5DE06F2}"
 EndProject
+Project("{640480B0-670B-2DA3-D815-8F7347C9E4C3}") = "OnlineBACK", "Assembly-CSharp-Editor-vs.csproj", "{CF9A7204-467D-E915-6AB5-015F6AD1A879}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +21,15 @@ Global
 		{C09B8FA8-B6AA-4744-9246-4DD8C5DE06F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C09B8FA8-B6AA-4744-9246-4DD8C5DE06F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C09B8FA8-B6AA-4744-9246-4DD8C5DE06F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9A7204-467D-E915-6AB5-015F6AD1A879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9A7204-467D-E915-6AB5-015F6AD1A879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9A7204-467D-E915-6AB5-015F6AD1A879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9A7204-467D-E915-6AB5-015F6AD1A879}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																							GlobalSection(MonoDevelopProperties) = preSolution
+																										GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

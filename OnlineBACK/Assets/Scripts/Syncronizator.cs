@@ -7,14 +7,15 @@ public class Syncronizator : Photon.MonoBehaviour {
 	PhotonView pv;
 	// Use this for initialization
 	void Start () {
+
 		pv = GetComponent<PhotonView>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(!pv.isMine){
-			transform.position = Vector3.Lerp(transform.position, trueLoc, Time.deltaTime * 5);
-			transform.rotation = Quaternion.Lerp(transform.rotation, trueRot, Time.deltaTime * 5);
+			transform.position = Vector3.Lerp(transform.position, trueLoc, Time.deltaTime * 10);
+			transform.rotation = Quaternion.Lerp(transform.rotation, trueRot, Time.deltaTime * 10);
 		}
 	
 	}
@@ -42,7 +43,6 @@ public class Syncronizator : Photon.MonoBehaviour {
 				stream.SendNext (transform.rotation);
 				DatabaseCharacter myChar = GetComponent<DatabaseCharacter>();
 				stream.SendNext (myChar.characterState);
-				print (myChar.characterState);
 			}
 		}
 	}

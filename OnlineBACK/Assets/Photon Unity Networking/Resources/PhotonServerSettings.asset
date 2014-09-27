@@ -14,7 +14,7 @@ MonoBehaviour:
   HostType: 1
   Protocol: 0
   ServerAddress: 127.0.0.1
-  ServerPort: 8080
+  ServerPort: 4530
   PreferredRegion: 1
   AppID: 09043be9-b01f-4397-9ef1-350b987e9c2a
   PingCloudServersOnAwake: 0
@@ -34,4 +34,6 @@ MonoBehaviour:
   - SetPosition
   - TaggedPlayer
   - SendChatMessage
+  - changeHealth
+  - knockBack
   DisableAutoOpenWizard: 0

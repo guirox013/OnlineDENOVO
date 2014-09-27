@@ -409,7 +409,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!95 &9500000
 Animator:
@@ -440,13 +440,14 @@ MonoBehaviour:
   isMine: 0
   myAnimator: {fileID: 0}
   characterState: 0
+  health: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 37c25fbb36a6db44a8b211419e5f16e6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .839999974

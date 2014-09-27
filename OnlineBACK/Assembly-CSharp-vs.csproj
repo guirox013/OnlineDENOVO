@@ -46,12 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Animatorcontroller.cs" />
-     <Compile Include="Assets\Chat.cs" />
      <Compile Include="Assets\CubeBehavior.cs" />
-     <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\MapScript.cs" />
-     <Compile Include="Assets\MenuController.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoBoxes\OnAwakePhysicsSettings.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoBoxes\TestGuiInstantiate.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoFriendsAndCustomAuth\GUICustomAuth.cs" />
@@ -137,14 +132,16 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+     <Compile Include="Assets\Scripts\Animatorcontroller.cs" />
      <Compile Include="Assets\Scripts\CharacterControllerMultiplayer.cs" />
+     <Compile Include="Assets\Scripts\Chat.cs" />
      <Compile Include="Assets\Scripts\ControladorServer.cs" />
      <Compile Include="Assets\Scripts\DatabaseCharacter.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MapScript.cs" />
+     <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\ServerController - Cópia.cs" />
-     <Compile Include="Assets\Scripts\ServerController.cs" />
-     <Compile Include="Assets\Sync.cs" />
-     <Compile Include="Assets\Syncronizator.cs" />
-     <Compile Include="Assets\TestCollider.cs" />
+     <Compile Include="Assets\Scripts\Syncronizator.cs" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />

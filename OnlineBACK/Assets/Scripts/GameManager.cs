@@ -14,7 +14,7 @@ public class GameManager : Photon.MonoBehaviour {
 	
 	void StartGame()
 	{   
-		CharacterControllerMultiplayer.character = (GameObject)PhotonNetwork.Instantiate ("SteveLite 1", respawns [limite].transform.position, players[limite].transform.rotation, 0);
+		CharacterControllerMultiplayer.character = (GameObject)PhotonNetwork.Instantiate ("SteveLite 1", respawns [Random.Range(0,respawns.Length-1)].transform.position, players[limite].transform.rotation, 0);
 		limite++;
 	}
 	
@@ -22,7 +22,7 @@ public class GameManager : Photon.MonoBehaviour {
 	{
 		if (PhotonNetwork.room == null) return; //Only display this GUI when inside a room
 		
-		if (GUILayout.Button("Leave Room"))
+		if (GUI.Button(new Rect (Screen.width - 100,Screen.height - 30,100,30),"Leave Room"))
 		{
 			PhotonNetwork.LeaveRoom();
 		}

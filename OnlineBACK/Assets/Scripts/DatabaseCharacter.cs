@@ -7,6 +7,7 @@ public class DatabaseCharacter : MonoBehaviour {
 	public Animator myAnimator;
 	public int characterState;
 	public int health;
+	public float stamina;
 	// Use this for initialization
 	void Start () {
 		myAnimator = GetComponent <Animator> ();	
@@ -33,20 +34,20 @@ public class DatabaseCharacter : MonoBehaviour {
 
 	// Checa se existe um player na frente e aplica um dano
 	public bool havePlayer (Vector3 position, Vector3 front, float distance){
-		RaycastHit hit;
-		Physics.Raycast (position, front, out hit, distance);	
-		if (hit.collider.transform.tag == "Player"){
+		RaycastHit hit;	
+		if (Physics.Raycast (position, front, out hit, distance) && hit.collider.transform.tag == "Player"){
 			Debug.Log ("Tentando hitar " + hit.collider.transform.name);
 			hit.collider.transform.SendMessage ("takeDamage", 10);
-			hit.collider.transform.SendMessage ("applyKnockBack", hit.collider.transform.TransformDirection(Vector3.back*1000));
+			hit.collider.transform.SendMessage ("applyKnockBack", hit.collider.transform.TransformDirection(front*1000));
 			return true;
 		}
-		else{ 
-			if (hit.transform.tag == null)
-				print ("Nao acertou nada");
-			print ("Nao hitou um player");
-			return false;
-		}
+		return false;
+	}
+
+
+	// HUD
+	void OnGUI(){
+		GUI.Box(new Rect(Screen.width - 100,0, 100, 50), "HP\t" + health+"\n Stamina\t" + (int)stamina);
 	}
 
 	// RPCS

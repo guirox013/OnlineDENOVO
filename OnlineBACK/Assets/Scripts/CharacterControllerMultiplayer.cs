@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using System.Collections;
 
 public class CharacterControllerMultiplayer : MonoBehaviour {
@@ -26,15 +26,21 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 	public float auxTime= 0f;
 	Vector3 down;
 	Vector3 front;
+	private bool isOnInventory = false;
 
 	// Start que nao serve pra porra nenhuma por enquanto
 	void Start () {
+		Screen.showCursor = false;
 	}
 
 	void FixedUpdate ()
 	{
+		// Checa se esta no inventario para desativar a movimentaçao
+		if (Input.GetButtonDown ("Inventory"))
+			isOnInventory = !isOnInventory;
+		
 		//Checa se existe char
-		if (character != null) {
+		if (character != null && !isOnInventory) {
 			// Criaçao do personagem e ajuste da camera
 			DatabaseCharacter DBchar = (DatabaseCharacter)character.GetComponent (typeof(DatabaseCharacter));
 			DBchar.isMine = true;
@@ -75,8 +81,10 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			// Nova Movimentaçao do personagem
 			Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal")* Time.deltaTime, 0, Input.GetAxis("Vertical")*Time.deltaTime);
 			targetVelocity = DBchar.transform.TransformDirection(targetVelocity);
-			if (Input.GetKey (KeyCode.LeftShift))
+			if (Input.GetKey (KeyCode.LeftShift) && DBchar.stamina > 0){
 				targetVelocity *= speed*runMultiplier;
+				DBchar.stamina -= 0.2f; 
+			}
 			else targetVelocity *= speed;
 			Vector3 velocity = DBchar.rigidbody.velocity;
 			Vector3 velocityChange = (targetVelocity - velocity);
@@ -87,9 +95,14 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 
 			// Pulo do Personagem
 
-			if (Input.GetKey (KeyCode.Space) && DBchar.isGrounded(DBchar.transform.position, down, 2.4f)){
+			if (Input.GetKeyDown (KeyCode.Space) && DBchar.isGrounded(DBchar.transform.position, down, 2.4f) && DBchar.stamina > 9){
 				DBchar.rigidbody.AddForce (0,jumpForce,0);
+				DBchar.stamina = DBchar.stamina - 10;
 			}
+
+			// Stamina recovery
+			if (DBchar.stamina <= 100)
+				DBchar.stamina += 0.02f;
 
 			// Chama o soco
 			if (Input.GetKeyDown (KeyCode.Mouse0) && DBchar.isMine && auxTime>0.8 ){
@@ -107,8 +120,4 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 
 		}
 	}
-		
-
-
-
 }

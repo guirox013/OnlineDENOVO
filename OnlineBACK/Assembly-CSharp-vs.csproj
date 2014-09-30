@@ -138,6 +138,9 @@
      <Compile Include="Assets\Scripts\ControladorServer.cs" />
      <Compile Include="Assets\Scripts\DatabaseCharacter.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Item.cs" />
+     <Compile Include="Assets\Scripts\ItemDatabase.cs" />
      <Compile Include="Assets\Scripts\MapScript.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\ServerController - Cópia.cs" />

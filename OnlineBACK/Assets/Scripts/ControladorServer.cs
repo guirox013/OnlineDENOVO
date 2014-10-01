@@ -115,8 +115,7 @@ public class ControladorServer : MonoBehaviour{
 		
 		GUILayout.EndArea();
 	}
-
-	// Instacia um char
+	
 
 
 	// Destroi um char

@@ -15,6 +15,7 @@ public class GameManager : Photon.MonoBehaviour {
 	void StartGame()
 	{   
 		CharacterControllerMultiplayer.character = (GameObject)PhotonNetwork.Instantiate ("SteveLite 1", respawns [Random.Range(0,respawns.Length-1)].transform.position, players[limite].transform.rotation, 0);
+		Screen.showCursor = false;
 		limite++;
 	}
 	

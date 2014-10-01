@@ -30,6 +30,9 @@ public class Inventory : MonoBehaviour {
 		AddItem (1);
 		AddItem (2);
 		AddItem (2);
+		AddItem (3);
+		AddItem (3);
+		AddItem (3);
 	}
 	
 	// Update is called once per frame
@@ -130,7 +133,6 @@ public class Inventory : MonoBehaviour {
 							return;
 						}
 						inventory[i] = database.items[j];
-						print (inventory[i].itemId);
 						return;
 					}
 				}

@@ -45,10 +45,7 @@ public class DatabaseCharacter : MonoBehaviour {
 	}
 
 
-	// HUD
-	void OnGUI(){
-		GUI.Box(new Rect(Screen.width - 100,0, 100, 50), "HP\t" + health+"\n Stamina\t" + (int)stamina);
-	}
+
 
 	// RPCS
 

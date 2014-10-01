@@ -27,10 +27,14 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 	Vector3 down;
 	Vector3 front;
 	private bool isOnInventory = false;
+	GameObject grabbedObject;
+	float grabbedObjectSize;
+
+	public int health;
+	public float stamina;
 
 	// Start que nao serve pra porra nenhuma por enquanto
 	void Start () {
-		Screen.showCursor = false;
 	}
 
 	void FixedUpdate ()
@@ -46,11 +50,14 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			DBchar.isMine = true;
 			mainCamera.parent = DBchar.head.transform;
 			mainCamera.position = new Vector3 (DBchar.head.position.x, DBchar.head.position.y + 0.3f, DBchar.head.position.z);
-			//print (DBchar.health);
+			health = DBchar.health;
+			stamina = DBchar.stamina;
 
 			// Atualiza variaveis de apoio
 			down = DBchar.transform.TransformDirection(Vector3.down);
+			front = DBchar.transform.TransformDirection(Vector3.forward);
 			auxTime += Time.deltaTime;
+			Debug.Log (MouseOverObject(DBchar.transform.position, front, 5f));
 
 			// Movimentaçao de X e Y simultaneos
 			if (axes == RotationAxes.MouseXAndY) {
@@ -107,7 +114,6 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 			// Chama o soco
 			if (Input.GetKeyDown (KeyCode.Mouse0) && DBchar.isMine && auxTime>0.8 ){
 				auxTime =0;
-				front = DBchar.transform.TransformDirection(Vector3.forward);
 				DBchar.characterState = 1;
 				DBchar.myAnimator.SetInteger ("animationState", DBchar.characterState);
 				DBchar.havePlayer (DBchar.transform.position, front, 10f);
@@ -117,7 +123,49 @@ public class CharacterControllerMultiplayer : MonoBehaviour {
 				DBchar.myAnimator.SetInteger ("animationState", DBchar.characterState);
 			}
 
+			// Picka e arremessa objetos
 
+			if (Input.GetButtonDown("Grab")){
+				if (grabbedObject == null)
+					GrabObject (MouseOverObject (DBchar.transform.position, front, 5f));
+				else 
+					DropObject();
+			}
+
+			// Se objeto estiver na mao
+			if (grabbedObject != null){
+				Vector3 newPosition = DBchar.transform.position + mainCamera.transform.forward*grabbedObjectSize;
+				grabbedObject.transform.position = newPosition;
+			}
+	
 		}
+	}
+
+	// Retorna objeto na frente do player
+	GameObject MouseOverObject (Vector3 position, Vector3 front, float range){
+		RaycastHit hit;
+		if (Physics.Raycast (position, front, out hit, range)) 
+			return hit.collider.gameObject;
+		return null;
+	}
+
+	void GrabObject (GameObject grabObject){
+		if (grabObject == null)
+			return;
+
+		grabbedObject = grabObject;
+		grabbedObjectSize = grabObject.renderer.bounds.size.magnitude;
+
+	}
+
+	void DropObject (){
+		if (grabbedObject == null)
+			return;
+		grabbedObject = null;
+	}
+
+	// HUD
+	void OnGUI(){ 
+		GUI.Box(new Rect(Screen.width - 100,0, 100, 50), "HP\t" + health+"\n Stamina\t" + (int)stamina);
 	}
 }

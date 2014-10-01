@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CubeBehavior.cs" />
+     <Compile Include="Assets\DefaultAI.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoBoxes\OnAwakePhysicsSettings.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoBoxes\TestGuiInstantiate.cs" />
      <Compile Include="Assets\Photon Unity Networking\Demos\DemoFriendsAndCustomAuth\GUICustomAuth.cs" />
@@ -136,8 +137,10 @@
      <Compile Include="Assets\Scripts\CharacterControllerMultiplayer.cs" />
      <Compile Include="Assets\Scripts\Chat.cs" />
      <Compile Include="Assets\Scripts\ControladorServer.cs" />
+     <Compile Include="Assets\Scripts\CubeBehavior.cs" />
      <Compile Include="Assets\Scripts\DatabaseCharacter.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GrabAndThrow.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemDatabase.cs" />
@@ -145,6 +148,8 @@
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\ServerController - Cópia.cs" />
      <Compile Include="Assets\Scripts\Syncronizator.cs" />
+     <Compile Include="Assets\TerrainController.cs" />
+     <Compile Include="Assets\a.cs" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />

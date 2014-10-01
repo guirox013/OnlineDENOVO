@@ -445,7 +445,7 @@ MonoBehaviour:
   myAnimator: {fileID: 0}
   characterState: 0
   health: 100
-  stamina: 100
+  stamina: Infinity
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -507,6 +507,7 @@ MonoBehaviour:
   inventory: []
   slots: []
   showInventory: 0
+  showToolTip: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
